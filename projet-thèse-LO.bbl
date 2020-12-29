@@ -1,0 +1,62 @@
+\begin{thebibliography}{10}
+
+\bibitem{ateniese2006improved}
+Giuseppe Ateniese, Kevin Fu, Matthew Green, and Susan Hohenberger.
+\newblock Improved proxy re-encryption schemes with applications to secure
+  distributed storage.
+\newblock {\em ACM Transactions on Information and System Security (TISSEC)},
+  9(1):1--30, 2006.
+
+\bibitem{Blaze98}
+Matt Blaze, Gerrit Bleumer, and Martin Strauss.
+\newblock Divertible protocols and atomic proxy cryptography.
+\newblock In Kaisa Nyberg, editor, {\em Advances in Cryptology ---
+  EUROCRYPT'98}, pages 127--144, Berlin, Heidelberg, 1998. Springer Berlin
+  Heidelberg.
+
+\bibitem{canetti2007chosen}
+Ran Canetti and Susan Hohenberger.
+\newblock Chosen-ciphertext secure proxy re-encryption.
+\newblock In {\em Proceedings of the 14th ACM conference on Computer and
+  communications security}, pages 185--194, 2007.
+
+\bibitem{devigne:tel-01081377}
+Julien Devigne.
+\newblock {\em {Protocoles de re-chiffrement pour le stockage de donn{\'e}es}}.
+\newblock Theses, {Universit{\'e} de Caen}, December 2013.
+
+\bibitem{elgamal1985public}
+Taher ElGamal.
+\newblock A public key cryptosystem and a signature scheme based on discrete
+  logarithms.
+\newblock {\em IEEE transactions on information theory}, 31(4):469--472, 1985.
+
+\bibitem{ivan2003proxy}
+Anca-Andreea Ivan and Yevgeniy Dodis.
+\newblock Proxy cryptography revisited.
+\newblock In {\em NDSS}, 2003.
+
+\bibitem{kirshanova2014proxy}
+Elena Kirshanova.
+\newblock Proxy re-encryption from lattices.
+\newblock In {\em International Workshop on Public Key Cryptography}, pages
+  77--94. Springer, 2014.
+
+\bibitem{libert2008unidirectional}
+Beno{\^\i}t Libert and Damien Vergnaud.
+\newblock Unidirectional chosen-ciphertext secure proxy re-encryption.
+\newblock In {\em International Workshop on Public Key Cryptography}, pages
+  360--379. Springer, 2008.
+
+\bibitem{liu2020development}
+Yepeng Liu, Yongjun Ren, Qirun Wang, and Jinyue Xia.
+\newblock The development of proxy re-encryption.
+\newblock {\em Journal of Cybersecurity}, 2(1):1, 2020.
+
+\bibitem{shao2009cca}
+Jun Shao and Zhenfu Cao.
+\newblock Cca-secure proxy re-encryption without pairings.
+\newblock In {\em International Workshop on Public Key Cryptography}, pages
+  357--376. Springer, 2009.
+
+\end{thebibliography}
