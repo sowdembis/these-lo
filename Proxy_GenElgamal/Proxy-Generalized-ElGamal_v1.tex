@@ -1,0 +1,256 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+%\usepackage{tkz-base,tkz-fct}
+%\usetikzlibrary{automata, arrows}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{authblk}
+\usepackage{multicol}
+\usepackage{paralist}
+\usepackage{url}
+\usepackage{bm}
+\usepackage{thmtools,thm-restate}
+\usepackage[centertags]{amsmath}
+\usepackage{algorithm,algorithmic}
+\usepackage{hyperref}
+\usepackage{amsthm}
+%\usepackage[centertags]{amsmath}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{proof}[theorem]{Proof}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\begin{document}
+
+\title{Proxy Re-Encryption based on the Generalized ElGamal encryption scheme}
+\author{\scriptsize{Demba Sow$^{1}$ and Mamadou Makhtar LO$^{2}$}}
+\affil{D\'epartement de Math\'ematiques et Informatique, FST, UCAD$^{1}$\\
+{\texttt{demba1.sow@ucad.edu.sn$^{1}$}}
+\\ Section Math\'ematiques Appliqu\'ees, UFR SAT, UGB$^{2}$\\
+ {\texttt{lo.mamdou-makhtar@ugb.edu.sn$^{2}$}}}
+
+\maketitle
+
+
+\tableofcontents
+
+    \begin{abstract}
+
+    \end{abstract}
+
+\section{Introduction}
+
+\paragraph{Contributions:} Our main aim is ...
+
+\begin{itemize}
+ \item
+ \item
+ \item
+\end{itemize}
+
+\paragraph{Related works:}
+
+In~\cite{improveproxy}, ...
+
+
+In~\cite{Elgamal}, ...
+
+
+In~\cite{sow}, ...
+
+
+In~\cite{cramer2003design}, ...
+
+
+\paragraph{Outline:} This paper is organized as follows:
+\begin{itemize}
+ \item In Section~\ref{sec:two}, ... 
+ \item In Section~\ref{sec:three}, ... 
+ \item In Section~\ref{sec:four}, ... 
+\end{itemize}
+
+
+\section{Recalls}\label{sec:two}
+
+\subsection{Proxy Encryption}\label{sec:two:1}
+
+\subsection{The "lite" Cramer-Shoup Encryption}\label{sec:two:2}
+
+\subsection{The Generalized ElGamal Encryption}\label{sec:two:2}
+We give a key generation mechanism and a public key encryption
+algorithm~\cite{sow}, which can be view as a slight modification of
+ElGamal's schemes~\cite{Elgamal}.
+
+\paragraph{Key generation algorithm.}
+    To create a public/private key, we do the following:
+\begin{itemize}
+    \item Select a cyclic group $G$ with sufficiently large order $d$ such that $G=\langle g \rangle$.
+
+    \item Select two random integers $r$ and $k$ sufficiently large
+      such that $ 2 < k < d$ and $r$ of size half the size of $d$ and compute $kd$.
+    \item Compute with Euclidean division algorithm, the pair $(s,t)$
+      such that $kd= rs+t$ where $t = kd \mod s$.
+
+    \item  Compute $\gamma = g^{s} $ and $\delta = g^{t} $ in $G$; Note that $\gamma \neq 1$ and $\delta \neq 1$.
+\end{itemize}
+Then public key is $((\gamma, \delta), G)$ and the private key is $( r, G)$.
+
+\paragraph{Encryption algorithm.}
+    To encrypt a message with the public key $((\gamma, \delta), d,
+    G)$, we do the following:
+\begin{itemize}
+    \item Select a random integer $2<\alpha< d=\#G$ such that $\alpha$
+      and $\#G$ are co-prime.
+    \item Compute $ c_{1}=\gamma^{\alpha} $ and
+      $\lambda=\delta^{\alpha}$ in $G$, hence $ c_{1}\neq 1$ and $
+      \lambda \neq 1$.
+    \item Transform the message $m$ as an element of $G$ and compute
+      $c_{2}=\lambda m$ in $G$.
+\end{itemize}
+
+ The ciphertext is $(c_{1}, c_{2})$.
+
+\paragraph{Decryption algorithm.}
+ To decrypt a ciphertext $(c_{1}, c_{2})$ encrypted with the public
+ key $((\gamma, \delta), d, G)$ and knowing the associate secret key
+ $( r, G)$, we just need to compute $c_{1}^{r}c_{2}$.
+
+\section{The "lite" Cramer-Shoup variant}\label{sec:three}
+
+\subsection{First Attempt}\label{sec:three:1}
+
+\paragraph{Key Generation}
+    \begin{itemize}
+      \item Compute $n=pq$ such that $p=2p'+1$ and $q=2q'+1$ are two safe primes.
+      Note that the master secret key is the factorization of $n = pq$.
+      \item Select a random $a \in \mathbb{Z}_{n^{2}}^{*}$ and compute a generator $g$ of order $\lambda(n)=2p'q'$ such that $g=-a^{2n} \mod n^{2}$.
+      \item Select the "weak" secret key is $x \in [1,n^{2}/2]$ and compute $h=g^{x} \mod n^{2}$.
+      \item The public key is $pk=(g,h,n)$ and the secret key is $sk=(x,n)$.
+    \end{itemize}
+
+\paragraph{Encryption}
+    To encrypt a message $m \in \mathbb{Z}_{n}^{*}$ with $pk = (g,h,n)$.
+    \begin{itemize}
+      \item Choose a random $r \in [1, n/4]$.
+      \item Compute $T_{1}=g^{r} \mod n^{2}$ and $T_{2}=h^{r}(1+mn) \mod n^{2}$.
+      \item Output the ciphertext $(T_{1}, T_{2})$.
+    \end{itemize}
+
+\paragraph{Decryption}
+    To decrypt a ciphertext $(T_{1}, T_{2})$.
+    \begin{itemize}
+      \item If $x$ is known, then the message can be recovered as $m=L(T_{2}/T_{1}^{x} \mod n^{2})$, where $L(u)=\frac{u-1}{n}$, for all $u \in \{u < n^{2} | u=1 \mod n \}$.
+      \item If $(p,q)$ are known, then $m$ can be recovered from $T_{2}$ by noticing that $T_{2}^{\lambda(n)}=g^{\lambda(n)xr}(1+m\lambda(n)n)=(1+m\lambda(n)n)$. Thus, given that $gcd(\lambda(n),n) = 1$, $m$ can be recovered as: $L(T_{2}^{\lambda(n)}\mod n^{2})[\lambda(n)]^{-1}\mod n$.
+    \end{itemize}
+    
+\subsection{Second Attempt}\label{sec:three:2}
+
+To minimize a user's secret storage and thus become key optimal, we present the BBS~\cite{Bla-Bleu-Stra}, El Gamal based~\cite{Elgamal} scheme operating over two groups $G_{1},G_{2}$ of prime order $q$ with a bilinear map
+$e: G_{1}^{2} \longrightarrow G_{2}$. The system parameters are random generators $g \in G_{1}$ and $Z = e(g,g) \in G_{2}$.
+
+\paragraph{Key Generation $(KG)$.} A user $\mathcal{A}$'s key pair is of the form $pk_{a} = g^{a}$, $sk_{a} = a$.
+\paragraph{Re-Encryption Key Generation $(RG)$.} A user $\mathcal{A}$ delegates to $\mathcal{B}$ by publishing the re-encryption key $rk_{\mathcal{A}\rightarrow \mathcal{B}} = g^{b/a} \in G_{1}$, computed from $\mathcal{B}$'s public key.
+\paragraph{First-Level Encryption $(E_{1})$.} To encrypt a message $m \in G_{2}$ under $pk_{a}$ in such a way that it can only be decrypted by the holder of $sk_{a}$, output $c = (Z^{ak}, mZ^{k})$.
+\paragraph{Second-Level Encryption $(E_{2})$.} To encrypt a message $m \in G_{2}$ under $pk_{a}$ in such a way that it can be decrypted by $\mathcal{A}$ and her delegatees, output $c = (g^{ak}, mZ^{k})$.
+\paragraph{Re-Encryption $(R)$.} Anyone can change a \emph{second-level} ciphertext for $\mathcal{A}$ into a \emph{first-level} ciphertext for $\mathcal{B}$ with $rk_{\mathcal{A}\rightarrow \mathcal{B}} = g^{b/a}$.
+From $c_{a} = (g^{ak},mZ^{k})$, compute $e(g^{ak},g^{b/a}) = Z^{bk}$ and publish $c_{b} = (Z^{bk},mZ^{k})$.
+\paragraph{Decryption $(D_{1})$.} To decrypt a \emph{first-level} ciphertext $c_{a} = (\alpha, \beta)$ with $sk = a$, compute $m = \beta/\alpha^{1/a}$.
+
+\subsection{Third Attempt}\label{sec:three:3}
+
+\paragraph{Key Generation $(KG)$.}
+\paragraph{Re-Encryption Key Generation $(RG)$}
+\paragraph{First-Level Encryption $(E_{1})$.}
+\paragraph{Second-Level Encryption $(E_{2})$.}
+\paragraph{Re-Encryption $(R)$.}
+\paragraph{Decryption $(D_{1}, D_{2})$.}
+
+
+\section{The Generalized ElGamal variant}\label{sec:four}
+
+\subsection{First Attempt}\label{sec:four:1}
+
+\paragraph{Key Generation}
+    \begin{itemize}
+      \item Compute $n=pq$ such that $p=2p'+1$ and $q=2q'+1$ are two safe primes.
+      Note that the master secret key is the factorization of $n = pq$.
+      \item Select a random $\mu \in \mathbb{Z}_{n^{2}}^{*}$ and compute a generator $g$ of order $\lambda(n)=2p'q'$ such that $g=-\mu^{2n} \mod n^{2}$.
+      \item Select random elements $k \in [1,n^{2}/2]$ and $x \in [1,n^{2}/4]$.
+      \item Compute $y=\lfloor\frac{k\lambda(n)}{x}\rfloor$ and $z=k\lambda(n) \mod x$ such that $k\lambda(n)=xy+z$.
+      \item Compute $b=g^{y}\mod n^{2}$ and $c=g^{z}\mod n^{2}$.
+      \item The public key is $pk=(b,c,n)$ and the secret key is $sk=(x,n)$.
+    \end{itemize}
+
+\paragraph{Encryption}
+     To encrypt a message $m \in \mathbb{Z}_{n}^{*}$ with $pk = (b,c,n)$.
+    \begin{itemize}
+      \item Choose a random $r \in [1, n/4]$.
+      \item Compute $u_{1}=b^{r} \mod n^{2}$ and $u_{2}=c^{r}(1+mn) \mod n^{2}$.
+      \item Output the ciphertext $(u_{1}, u_{2})$.
+    \end{itemize}
+
+\paragraph{Decryption}
+    To decrypt a ciphertext $(u_{1}, u_{2})$.
+    \begin{itemize}
+      \item If $x$ is known, then the message can be recovered as $m=L(u_{2}u_{1}^{x} \mod n^{2})$, where $L(v)=\frac{v-1}{n}$, for all $v \in \{v < n^{2} | v=1 \mod n \}$.
+      \item If $(p,q)$ are known, then $m$ can be recovered from $u_{2}$ by noticing that $u_{2}^{\lambda(n)}=g^{\lambda(n)zr}(1+m\lambda(n)n)=(1+m\lambda(n)n)$. Thus, given that $gcd(\lambda(n),n) = 1$, $m$ can be recovered as: $L(u_{2}^{\lambda(n)}\mod n^{2})[\lambda(n)]^{-1}\mod n$.
+    \end{itemize}
+
+\paragraph{Correctness}
+    \begin{itemize}
+      \item $L\left(u_{2}u_{1}^{x}\right)=\dfrac{u_{2}u_{1}^{x}-1}{n}=\dfrac{c^{r}(1+mn)b^{rx}-1}{n}=
+    \dfrac{g^{zr}(1+mn)g^{xyr}-1}{n}
+    =\dfrac{g^{r(xy+z)}(1+mn)-1}{n}=\dfrac{g^{rk\lambda(n)}(1+mn)-1}{n}=\dfrac{(1+mn)-1}{n}=m$.
+
+      \item \begin{align*}
+     L\left(u_{2}^{\lambda(n)}\mod n^{2}\right)[\lambda(n)]^{-1}&=\left(\dfrac{u_{2}^{\lambda(n)}-1}{n}\right)[\lambda(n)]^{-1} \\
+     &=\left(\dfrac{g^{\lambda(n)zr}(1+m\lambda(n)n)-1}{n}\right)[\lambda(n)]^{-1} \\
+     &= \left(\dfrac{1+m\lambda(n)n-1}{n\lambda(n)}\right) \\
+     &=m.
+    \end{align*}
+    \end{itemize}
+
+
+\subsection{Second Attempt}\label{sec:four:2}
+
+Let $G_{1}$ and $G_{2}$ be two groups of prime order $d$ with a bilinear map
+$e: G_{1}^{2} \longrightarrow G_{2}$. The system parameters are random generators $g \in G_{1}$ and $Z = e(g,g) \in G_{2}$.
+
+\paragraph{Key Generation $(KG)$.} A user $\mathcal{A}$'s key pair is of the form $pk_{\mathcal{A}} = (g^{s},g^{t})$, $sk_{\mathcal{A}} = q$ where $k\in \mathbb{Z}_{p}$ and $ q \in \mathbb{Z}_{p}$ are two random elements such that $kd=qs+t$.
+\paragraph{Re-Encryption Key Generation $(RG)$.} A user $\mathcal{A}$ delegates to $\mathcal{B}$ by publishing the re-encryption key $rk_{\mathcal{A}\rightarrow \mathcal{B}} = g^{t^\prime/t} \in G_{1}$, computed from $\mathcal{B}$'s public key.
+\paragraph{First-Level Encryption $(E_{1})$.} To encrypt a message $m \in G_{2}$ under $pk_{\mathcal{A}}$ in such a way that it can only be decrypted by the holder of $sk_{\mathcal{A}}$, output $c = (Z^{str}, mZ^{s^{2}r})$ where $r\in G_{1}$ is a random element.
+\paragraph{Second-Level Encryption $(E_{2})$.} To encrypt a message $m \in G_{2}$ under $pk_{\mathcal{A}}$ in such a way that it can be decrypted by $\mathcal{A}$ and her delegatees, output $c = (g^{tr}, mZ^{r})$ where $r\in G_{1}$ is a random element.
+\paragraph{Re-Encryption $(R)$.} Anyone can change a \emph{second-level} ciphertext for $\mathcal{A}$ into a \emph{first-level} ciphertext for $\mathcal{B}$ with $rk_{\mathcal{A}\rightarrow \mathcal{B}} = g^{t^\prime/t}$.
+From $c_{\mathcal{A}} = (g^{tr},mZ^{r})$, compute $e(g^{tr},g^{t'/t}) = Z^{t^\prime r}$ and publish $c_{\mathcal{B}} = (Z^{t^\prime r},mZ^{r})$ where $r\in G_{1}$ is a random element.
+\paragraph{Decryption $(D_{1})$.} To decrypt a \emph{first-level} ciphertext $c_{\mathcal{A}} = (\alpha, \beta)$ with $sk_{\mathcal{A}} = q$, compute $m = \beta\alpha^{1/q}$.
+
+\paragraph{Correctness}
+
+\subsection{Third Attempt}\label{sec:four:3}
+
+\paragraph{Key Generation $(KG)$.} 
+\paragraph{Re-Encryption Key Generation $(RG)$.} 
+\paragraph{First-Level Encryption $(E_{1})$.} 
+\paragraph{Second-Level Encryption $(E_{2})$.} 
+\paragraph{Re-Encryption $(R)$.} 
+\paragraph{Decryption $(D_{1}, D_{2})$.} 
+
+    \paragraph{Correctness}
+
+\section*{\textbf{Conclusion}}
+
+\bibliographystyle{alpha}
+\bibliography{biblio}
+
+\end{document}
+
