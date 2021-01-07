@@ -1,0 +1,33 @@
+\begin{thebibliography}{GAH05}
+
+\bibitem[CS03]{cramer2003design}
+Ronald Cramer and Victor Shoup.
+\newblock Design and analysis of practical public-key encryption schemes secure
+  against adaptive chosen ciphertext attack.
+\newblock {\em SIAM Journal on Computing}, 33(1):167--226, 2003.
+
+\bibitem[ElG85]{Elgamal}
+T.~ElGamal.
+\newblock A public key cryptosystem and a signature scheme based on discrete
+  logarithms.
+\newblock In {\em CRYPTO, IT-31(4)}, volume~4, pages 469--472, 1985.
+
+\bibitem[GAH05]{improveproxy}
+M.~Green G.~Ateniese, K.~Fu and S.~Hohenberger.
+\newblock Improved proxy re-encryptionschemes with applications to secure
+  distributed storage.
+\newblock In {\em In NDSS}, pages 29--43, 2005.
+
+\bibitem[MBS98]{Bla-Bleu-Stra}
+G.~Bleumer Matt~Blaze and M.~Strauss.
+\newblock Divertible protocols and atomic proxy cryptography.
+\newblock In {\em In Proceedings of Eurocrypt 1998}, volume 1403, pages
+  127--144, 1998.
+
+\bibitem[SS11]{sow}
+Demba Sow and Djiby Sow.
+\newblock A new variant of el gamal's encryption and signatures schemes.
+\newblock {\em JP Journal of Algebra, Number Theory and Applications},
+  20(1):21--39, 2011.
+
+\end{thebibliography}

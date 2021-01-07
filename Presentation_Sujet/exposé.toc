@@ -1,0 +1,8 @@
+\beamer@sectionintoc {2}{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}{6}{0}{1}
+\beamer@subsectionintoc {2}{1}{Serveur de re-chiffrement}{6}{0}{1}
+\beamer@subsectionintoc {2}{2}{Chiffrement Unidirectionnel}{7}{0}{1}
+\beamer@subsectionintoc {2}{3}{Chiffrement Bidirectionnel}{8}{0}{1}
+\beamer@sectionintoc {3}{PRE basé sur le modèle Generalized Elgamal}{9}{0}{2}
+\beamer@subsectionintoc {3}{1}{Le schéma Generalized Elgamal}{9}{0}{2}
+\beamer@subsectionintoc {3}{2}{Le schéma "lite" Cramer-Shoup}{10}{0}{2}
+\beamer@subsectionintoc {3}{3}{Construction de Serveur de Re-chiffrement}{11}{0}{2}

@@ -1,0 +1,52 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {paragraph}{Contributions:}{1}{section*.2}%
+\contentsline {paragraph}{Related works:}{2}{section*.3}%
+\contentsline {paragraph}{Outline:}{2}{section*.4}%
+\contentsline {section}{\numberline {2}Recalls}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Proxy Encryption}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}The "lite" Cramer-Shoup Encryption}{2}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}The Generalized ElGamal Encryption}{2}{subsection.2.3}%
+\contentsline {paragraph}{Key generation algorithm.}{2}{section*.5}%
+\contentsline {paragraph}{Encryption algorithm.}{3}{section*.6}%
+\contentsline {paragraph}{Decryption algorithm.}{3}{section*.7}%
+\contentsline {section}{\numberline {3}The "lite" Cramer-Shoup variant}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}First Attempt}{3}{subsection.3.1}%
+\contentsline {paragraph}{Key Generation}{3}{section*.8}%
+\contentsline {paragraph}{Encryption}{3}{section*.9}%
+\contentsline {paragraph}{Decryption}{3}{section*.10}%
+\contentsline {subsection}{\numberline {3.2}Second Attempt}{4}{subsection.3.2}%
+\contentsline {paragraph}{Key Generation $(KG)$.}{4}{section*.11}%
+\contentsline {paragraph}{Re-Encryption Key Generation $(RG)$.}{4}{section*.12}%
+\contentsline {paragraph}{First-Level Encryption $(E_{1})$.}{4}{section*.13}%
+\contentsline {paragraph}{Second-Level Encryption $(E_{2})$.}{4}{section*.14}%
+\contentsline {paragraph}{Re-Encryption $(R)$.}{4}{section*.15}%
+\contentsline {paragraph}{Decryption $(D_{1})$.}{4}{section*.16}%
+\contentsline {subsection}{\numberline {3.3}Third Attempt}{4}{subsection.3.3}%
+\contentsline {paragraph}{Key Generation $(KG)$.}{4}{section*.17}%
+\contentsline {paragraph}{Re-Encryption Key Generation $(RG)$}{4}{section*.18}%
+\contentsline {paragraph}{First-Level Encryption $(E_{1})$.}{4}{section*.19}%
+\contentsline {paragraph}{Second-Level Encryption $(E_{2})$.}{4}{section*.20}%
+\contentsline {paragraph}{Re-Encryption $(R)$.}{4}{section*.21}%
+\contentsline {paragraph}{Decryption $(D_{1}, D_{2})$.}{4}{section*.22}%
+\contentsline {section}{\numberline {4}The Generalized ElGamal variant}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}First Attempt}{5}{subsection.4.1}%
+\contentsline {paragraph}{Key Generation}{5}{section*.23}%
+\contentsline {paragraph}{Encryption}{5}{section*.24}%
+\contentsline {paragraph}{Decryption}{5}{section*.25}%
+\contentsline {paragraph}{Correctness}{5}{section*.26}%
+\contentsline {subsection}{\numberline {4.2}Second Attempt}{6}{subsection.4.2}%
+\contentsline {paragraph}{Key Generation $(KG)$.}{6}{section*.27}%
+\contentsline {paragraph}{Re-Encryption Key Generation $(RG)$.}{6}{section*.28}%
+\contentsline {paragraph}{First-Level Encryption $(E_{1})$.}{6}{section*.29}%
+\contentsline {paragraph}{Second-Level Encryption $(E_{2})$.}{6}{section*.30}%
+\contentsline {paragraph}{Re-Encryption $(R)$.}{6}{section*.31}%
+\contentsline {paragraph}{Decryption $(D_{1})$.}{6}{section*.32}%
+\contentsline {paragraph}{Correctness}{6}{section*.33}%
+\contentsline {subsection}{\numberline {4.3}Third Attempt}{6}{subsection.4.3}%
+\contentsline {paragraph}{Key Generation $(KG)$.}{6}{section*.34}%
+\contentsline {paragraph}{Re-Encryption Key Generation $(RG)$.}{7}{section*.35}%
+\contentsline {paragraph}{First-Level Encryption $(E_{1})$.}{7}{section*.36}%
+\contentsline {paragraph}{Second-Level Encryption $(E_{2})$.}{7}{section*.37}%
+\contentsline {paragraph}{Re-Encryption $(R)$.}{7}{section*.38}%
+\contentsline {paragraph}{Decryption $(D_{1}, D_{2})$.}{7}{section*.39}%
+\contentsline {paragraph}{Correctness}{7}{section*.40}%

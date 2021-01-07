@@ -13,17 +13,18 @@
 \begin{frame}{Introduction}
 	\begin{block}{Contexte}
 	\begin{itemize}
-		\item Développements Technologiques: Cloud Computing, Partage de fichiers (IoT) etc..
-		\item Besoins en Sécurité: Délégation, Contrôle d'accès..  
+		\item Développements Technologiques: Cloud Storage, Cloud Computing, IoT etc..
+		\item Partage de fichiers entre utilisateurs
+		\item Besoins en Sécurité: Délégation, Contrôle d'accès..\\
+		Comment partager un fichier sans divulguer le message ou les clé de déchiffrements ? 
 	\end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}{Introduction}
-	\begin{block}{Solution:}
+	\begin{block}{Objet:}
 		Serveur de re-chiffrement (ou Proxy Re-Encryption)
 		\begin{itemize}
-			\item Proposé en 1998 par Matt Blazer et Al.
 			\item Transforme un texte chiffré pour une clé particulière en un texte chiffré pour une autre clé:\\
 			sans avoir accès au texte clair,\\
 			sans avoir accès aux clés de déchiffrement.
@@ -39,7 +40,19 @@
 	\begin{block}{Problématique}
 		\begin{itemize}
 			\item Construction de serveurs de re-chiffrement (unidirectionnel/Bidirectionnel)
-			\item Étude de
+			\item Preuves de Sécurité
+			\item Applicabilité et efficacité
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{Introduction}
+	\begin{block}{Objectifs}
+		\begin{itemize}
+			\item Aspects définitionnels de la notion de PRE (définitions, particularités, modèles existants ...)
+			\item Aspects cryptographiques théoriques (Proposition de modèles, analyse de la sécurité, applications...)
+			\item Aspects cryptographiques pratiques (Implémentation, tests d'applicabilité...)
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -47,7 +60,23 @@
 \section{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}
 \subsection{Serveur de re-chiffrement}
 \begin{frame}{Serveur de re-chiffrement (PRE)}
-	
+	\begin{block}{Proxy Re-Encryption}
+		\begin{itemize}
+			\item Proposé en 1998 par Matt Blaze, Gerrit Bleumer et Martin Strauss
+			\item "Atomic Proxy function"
+			\item Développement (Méthode générique 2003, Formalisation en 2005 etc.. ) 
+		\end{itemize}
+	\end{block}
+	\begin{block}{Principe de fonctionnement}
+	PRE:  \{\textit{Clé}, \textit{Délégation}, \textit{Chiffrer}, \textit{Re-Chiffrer}, \textit{Dechiffrer}\} tels que:
+	\begin{itemize}
+		\item \textit{Clé} génère les clés de chiffrement et déchiffrement.
+		\item \textit{Délégation} génère la clé de délégation ou \textit{clé proxy}.
+		\item \textit{Chiffrer} chiffre le message à l'aide de la clé de chiffrement.
+		\item \textit{Re-Chiffrer} transforme (re-chiffre) à l'aide de la \textit{clé proxy} un texte chiffré pour A en un texte chiffré pour B.
+		\item  \textit{Dechiffrer} déchiffre le texte chiffré à l'aide de la clé de déchiffrement.
+	\end{itemize}
+	\end{block}
 \end{frame}
 
 \subsection{Chiffrement Unidirectionnel}
