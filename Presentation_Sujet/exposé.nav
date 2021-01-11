@@ -1,50 +1,61 @@
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
-\headcommand {\beamer@sectionpages {1}{1}}
-\headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\sectionentry {1}{Introduction}{2}{Introduction}{0}}
-\headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
 \headcommand {\beamer@framepages {2}{2}}
-\headcommand {\slideentry {1}{0}{2}{3/3}{}{0}}
-\headcommand {\beamer@framepages {3}{3}}
-\headcommand {\slideentry {1}{0}{3}{4/4}{}{0}}
-\headcommand {\beamer@framepages {4}{4}}
-\headcommand {\slideentry {1}{0}{4}{5/5}{}{0}}
-\headcommand {\beamer@framepages {5}{5}}
-\headcommand {\beamer@sectionpages {2}{5}}
-\headcommand {\beamer@subsectionpages {2}{5}}
-\headcommand {\sectionentry {2}{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}{6}{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}{0}}
-\headcommand {\beamer@subsectionpages {6}{5}}
-\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{Serveur de re-chiffrement}}
-\headcommand {\slideentry {2}{1}{1}{6/6}{Serveur de re-chiffrement}{0}}
-\headcommand {\beamer@framepages {6}{6}}
-\headcommand {\beamer@subsectionpages {6}{6}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{7}{Chiffrement Unidirectionnel}}
-\headcommand {\slideentry {2}{2}{1}{7/7}{Chiffrement Unidirectionnel}{0}}
-\headcommand {\beamer@framepages {7}{7}}
-\headcommand {\beamer@subsectionpages {7}{7}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{8}{Chiffrement Bidirectionnel}}
-\headcommand {\slideentry {2}{3}{1}{8/8}{Chiffrement Bidirectionnel}{0}}
-\headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@sectionpages {6}{8}}
-\headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\sectionentry {3}{PRE basé sur le modèle Generalized Elgamal}{9}{PRE basé sur le modèle Generalized Elgamal}{0}}
-\headcommand {\beamer@subsectionpages {9}{8}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{9}{Le schéma Generalized Elgamal}}
-\headcommand {\slideentry {3}{1}{1}{9/9}{Le schéma Generalized Elgamal}{0}}
-\headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{10}{Le schéma "lite" Cramer-Shoup}}
-\headcommand {\slideentry {3}{2}{1}{10/10}{Le schéma "lite" Cramer-Shoup}{0}}
-\headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{11}{Construction de Serveur de Re-chiffrement}}
-\headcommand {\slideentry {3}{3}{1}{11/11}{Construction de Serveur de Re-chiffrement}{0}}
-\headcommand {\beamer@framepages {11}{11}}
-\headcommand {\slideentry {3}{3}{2}{12/12}{Construction de Serveur de Re-chiffrement}{0}}
-\headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@partpages {1}{12}}
-\headcommand {\beamer@subsectionpages {11}{12}}
-\headcommand {\beamer@sectionpages {9}{12}}
-\headcommand {\beamer@documentpages {12}}
-\headcommand {\gdef \inserttotalframenumber {12}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\sectionentry {1}{Introduction}{3}{Introduction}{0}}
+\headcommand {\beamer@subsectionpages {3}{2}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{3}{Contexte}}
+\headcommand {\slideentry {1}{1}{1}{3/6}{Contexte}{0}}
+\headcommand {\beamer@framepages {3}{6}}
+\headcommand {\slideentry {1}{1}{2}{7/14}{Contexte}{0}}
+\headcommand {\beamer@framepages {7}{14}}
+\headcommand {\beamer@subsectionpages {3}{14}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{15}{Problématique}}
+\headcommand {\slideentry {1}{2}{1}{15/18}{Problématique}{0}}
+\headcommand {\beamer@framepages {15}{18}}
+\headcommand {\beamer@subsectionpages {15}{18}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{19}{Objectifs}}
+\headcommand {\slideentry {1}{3}{1}{19/22}{Objectifs}{0}}
+\headcommand {\beamer@framepages {19}{22}}
+\headcommand {\beamer@sectionpages {3}{22}}
+\headcommand {\beamer@subsectionpages {19}{22}}
+\headcommand {\sectionentry {2}{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}{23}{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}{0}}
+\headcommand {\beamer@subsectionpages {23}{22}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{23}{Serveur de re-chiffrement}}
+\headcommand {\slideentry {2}{1}{1}{23/32}{Serveur de re-chiffrement}{0}}
+\headcommand {\beamer@framepages {23}{32}}
+\headcommand {\beamer@subsectionpages {23}{32}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{33}{Chiffrement Unidirectionnel}}
+\headcommand {\slideentry {2}{2}{1}{33/40}{Chiffrement Unidirectionnel}{0}}
+\headcommand {\beamer@framepages {33}{40}}
+\headcommand {\beamer@subsectionpages {33}{40}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{41}{Chiffrement Bidirectionnel}}
+\headcommand {\slideentry {2}{3}{1}{41/49}{Chiffrement Bidirectionnel}{0}}
+\headcommand {\beamer@framepages {41}{49}}
+\headcommand {\beamer@sectionpages {23}{49}}
+\headcommand {\beamer@subsectionpages {41}{49}}
+\headcommand {\sectionentry {3}{PRE basé sur le modèle Generalized Elgamal}{50}{PRE basé sur le modèle Generalized Elgamal}{0}}
+\headcommand {\beamer@subsectionpages {50}{49}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{50}{Le schéma Generalized Elgamal}}
+\headcommand {\slideentry {3}{1}{1}{50/55}{Le schéma Generalized Elgamal}{0}}
+\headcommand {\beamer@framepages {50}{55}}
+\headcommand {\slideentry {3}{1}{2}{56/62}{Le schéma Generalized Elgamal}{0}}
+\headcommand {\beamer@framepages {56}{62}}
+\headcommand {\beamer@subsectionpages {50}{62}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{63}{Condtruction de Serveur de Rechiffrement}}
+\headcommand {\slideentry {3}{2}{1}{63/67}{Condtruction de Serveur de Rechiffrement}{0}}
+\headcommand {\beamer@framepages {63}{67}}
+\headcommand {\beamer@sectionpages {50}{67}}
+\headcommand {\beamer@subsectionpages {63}{67}}
+\headcommand {\sectionentry {4}{Conclusion}{68}{Conclusion}{0}}
+\headcommand {\slideentry {4}{0}{1}{68/73}{}{0}}
+\headcommand {\beamer@framepages {68}{73}}
+\headcommand {\slideentry {4}{0}{2}{74/74}{}{0}}
+\headcommand {\beamer@framepages {74}{74}}
+\headcommand {\beamer@partpages {1}{74}}
+\headcommand {\beamer@subsectionpages {68}{74}}
+\headcommand {\beamer@sectionpages {68}{74}}
+\headcommand {\beamer@documentpages {74}}
+\headcommand {\gdef \inserttotalframenumber {14}}

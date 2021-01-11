@@ -1,5 +1,7 @@
 \documentclass{beamer}
 \usetheme{default}
+\setbeamertemplate{footline} % Only page number at the bottom
+{\begin{minipage}{125mm} \vspace{-3 mm} \hfill \insertframenumber \end{minipage}}
 
 \title{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}
 \subtitle{Constructions, Modèle de Sécurité et Applications}
@@ -8,14 +10,18 @@
 \begin{frame}[plain]
     \maketitle
 \end{frame}
-\section*{Introduction}
+\begin{frame}[plain]
+	\tableofcontents
+\end{frame}
+\section{Introduction}
+\subsection{Contexte}
 
 \begin{frame}{Introduction}
 	\begin{block}{Contexte}
 	\begin{itemize}
-		\item Développements Technologiques: Cloud Storage, Cloud Computing, IoT etc..
-		\item Partage de fichiers entre utilisateurs
-		\item Besoins en Sécurité: Délégation, Contrôle d'accès..\\
+		\item Développements Technologiques: Cloud Storage, Cloud Computing, IoT etc.. \pause
+		\item Partage de fichiers entre utilisateurs \pause
+		\item Besoins en Sécurité: Délégation, Contrôle d'accès..\\ \pause
 		Comment partager un fichier sans divulguer le message ou les clé de déchiffrements ? 
 	\end{itemize}
 \end{block}
@@ -23,36 +29,36 @@
 
 \begin{frame}{Introduction}
 	\begin{block}{Objet:}
-		Serveur de re-chiffrement (ou Proxy Re-Encryption)
+		Serveur de re-chiffrement (ou Proxy Re-Encryption)\pause
 		\begin{itemize}
-			\item Transforme un texte chiffré pour une clé particulière en un texte chiffré pour une autre clé:\\
-			sans avoir accès au texte clair,\\
-			sans avoir accès aux clés de déchiffrement.
-			\item Selon le sens de la délégation:
-			Chiffrement Unidirectionnel\\
-			Chiffrement Bidirectionnel.
+			\item Transforme un texte chiffré pour une clé particulière en un texte chiffré pour une autre clé:\\ \pause
+			sans avoir accès au texte clair,\\ \pause
+			sans avoir accès aux clés de déchiffrement. \pause
+			\item Selon le sens de la délégation: \pause
+			Chiffrement Unidirectionnel\\ \pause
+			Chiffrement Bidirectionnel. \pause
 		\end{itemize}
 		
 	\end{block}
 \end{frame}
-
+\subsection{Problématique}
 \begin{frame}{Introduction}
 	\begin{block}{Problématique}
 		\begin{itemize}
-			\item Construction de serveurs de re-chiffrement (unidirectionnel/Bidirectionnel)
-			\item Preuves de Sécurité
-			\item Applicabilité et efficacité
+			\item Construction de serveurs de re-chiffrement (unidirectionnel/Bidirectionnel)\pause
+			\item Preuves de Sécurité \pause
+			\item Applicabilité et efficacité \pause
 		\end{itemize}
 	\end{block}
 \end{frame}
 
-
+\subsection{Objectifs}
 \begin{frame}{Introduction}
 	\begin{block}{Objectifs}
 		\begin{itemize}
-			\item Aspects définitionnels de la notion de PRE (définitions, particularités, modèles existants ...)
-			\item Aspects cryptographiques théoriques (Proposition de modèles, analyse de la sécurité, applications...)
-			\item Aspects cryptographiques pratiques (Implémentation, tests d'applicabilité...)
+			\item Aspects définitionnels de la notion de PRE (définitions, particularités, modèles existants ...) \pause
+			\item Aspects cryptographiques théoriques (Proposition de modèles, analyse de la sécurité, applications...) \pause
+			\item Aspects cryptographiques pratiques (Implémentation, tests d'applicabilité...) \pause
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -62,52 +68,120 @@
 \begin{frame}{Serveur de re-chiffrement (PRE)}
 	\begin{block}{Proxy Re-Encryption}
 		\begin{itemize}
-			\item Proposé en 1998 par Matt Blaze, Gerrit Bleumer et Martin Strauss
-			\item "Atomic Proxy function"
-			\item Développement (Méthode générique 2003, Formalisation en 2005 etc.. ) 
+			\item Proposé en 1998 par Blaze, Bleumer et Strauss \pause
+			\item "Atomic Proxy function" \pause
+			\item Développement (Méthode générique 2003 (), Formalisation en 2005 (Ateniese) etc.. ) \pause 
 		\end{itemize}
 	\end{block}
 	\begin{block}{Principe de fonctionnement}
-	PRE:  \{\textit{Clé}, \textit{Délégation}, \textit{Chiffrer}, \textit{Re-Chiffrer}, \textit{Dechiffrer}\} tels que:
+	PRE:  \{\textit{Clé}, \textit{Délégation}, \textit{Chiffrer}, \textit{Re-Chiffrer}, \textit{Dechiffrer}\} tels que: \pause
 	\begin{itemize}
-		\item \textit{Clé} génère les clés de chiffrement et déchiffrement.
-		\item \textit{Délégation} génère la clé de délégation ou \textit{clé proxy}.
-		\item \textit{Chiffrer} chiffre le message à l'aide de la clé de chiffrement.
-		\item \textit{Re-Chiffrer} transforme (re-chiffre) à l'aide de la \textit{clé proxy} un texte chiffré pour A en un texte chiffré pour B.
-		\item  \textit{Dechiffrer} déchiffre le texte chiffré à l'aide de la clé de déchiffrement.
+		\item \textit{Clé} génère les clés de chiffrement et déchiffrement. \pause
+		\item \textit{Délégation} génère la clé de délégation ou \textit{clé proxy}. \pause
+		\item \textit{Chiffrer} chiffre le message à l'aide de la clé de chiffrement. \pause
+		\item \textit{Re-Chiffrer} transforme (re-chiffre) à l'aide de la \textit{clé proxy} un texte chiffré pour A en un texte chiffré pour B. \pause
+		\item  \textit{Dechiffrer} déchiffre le texte chiffré à l'aide de la clé de déchiffrement. \pause
 	\end{itemize}
 	\end{block}
 \end{frame}
 
+
 \subsection{Chiffrement Unidirectionnel}
 \begin{frame}{Chiffrement Unidirectionnel}
 	
-\end{frame}
-
-\subsection{Chiffrement Bidirectionnel}
-\begin{frame}{Chiffrement Bidirectionnel}
+	\begin{itemize}
+		\item A peut déléguer à B mais pas inversement. \pause
+		\item Premier modèle avec Alan en 2003. \pause
+		\item Confiance de A en B. \pause
+		\item Formalisation:\\ \pause
+		Soit $E$ l'événement "la clé $\pi_{A\to B}$ est calculable en temps polynomial à partir de $\pi_{B\to A}$"\\ \pause
+		$P(E)$ est à distance négligeable de 0. \pause
+		\item Délégation "pure". \pause
+	\end{itemize}
 	
 \end{frame}
+
+
+
+\subsection{Chiffrement Bidirectionnel}
+
+\begin{frame}{Chiffrement Bidirectionnel}
+		\begin{itemize}
+		\item A peut déléguer à B et inversement. \pause
+		\item Premier modèle avec Blaze et Al. en 1998. \pause
+		\item Confiance mutuelle entre A et B. \pause
+		\item Formalisation:\\ \pause
+		Soit $E$ l'événement "la clé $\pi_{A\to B}$ est calculable en temps polynomial à partir de $\pi_{B\to A}$"\\ \pause
+		$P(E)$ est à distance négligeable de 1. \pause
+		\item Clé proxy souvent de la forme $x_A/x_B$ ou $x_A-x_B$ \pause
+		\item Partage d'accès, répertoire de travail... \pause
+		\end{itemize}
+\end{frame}
+
 
 \section{PRE basé sur le modèle Generalized Elgamal}
 \subsection{Le schéma Generalized Elgamal}
-\begin{frame}{Le schéma "lite" Cramer-Shoup}
+\begin{frame}{Le schéma Generalized Elgamal}
+	\begin{block}{Algorithme de génération de clé}
+		\begin{itemize}
+			\item Choisir un groupe cyclique $G$ d'ordre suffisamment large $d$ tel que $G=\langle g \rangle$. \pause
+			
+			\item Choisir aléatoirement deux entiers $r$ et $k$ suffisamment large avec $ 2 < k < d$ et $r$ et calculer $kd$. \pause
+			\item Avec l'algorithme de la division euclidienne, calculer $(s,t)$ tel que $kd= rs+t$ où $t = kd \mod s$. \pause
+			
+			\item Calculer $\gamma = g^{s} $ et $\delta = g^{t} \in G$; avec $\gamma \neq 1$ et $\delta \neq 1$. \pause
+		\end{itemize}
+		La clé publique est $((\gamma, \delta), G)$ et la clé privée $( r, G)$. \pause
+		
+	\end{block}
+\end{frame}
+\begin{frame}{Le schéma Generalized Elgamal}
+		\begin{block}{Algorithme de Chiffrement}
+		    Pour chifrrer un message $m$ avec $((\gamma, \delta), d, 
+		G)$: \pause
+		\begin{itemize}
+			\item Choisir aléatoirement un entier $2<\alpha< d=\#G$ tel que $\alpha$ 
+			et $\#G$ premiers entre eux. \pause
+			\item Calculer $ c_{1}=\gamma^{\alpha} $ et
+			$\lambda=\delta^{\alpha}\in G$ avec $ c_{1}\neq 1$ et $
+			\lambda \neq 1$. \pause
+			\item Transformer $m$ en un élément de $G$ et calculer
+			$c_{2}=\lambda m$ in $G$. \pause
+		\end{itemize}
+		
+		Le texte chiffré est $(c_{1}, c_{2})$. \pause
+		\end{block}
+			\begin{block}{Algorithme de Dechiffrement.}
+			Pour déchiffrer on a juste besoin de calculer $c_{1}^{r}c_{2}$. \pause
+			
+		\end{block}
+\end{frame}
+
+
+\subsection{Condtruction de Serveur de Rechiffrement}
+\begin{frame}{PRE basé sur ElGamal Généralisé}
+	\begin{itemize}
+		\item Étude de la sécurité du schéma \pause
+		\item Construction des algorithmes de Délégation et de Re-chiffrement \pause
+		\item Preuves de Sécurité \pause
+		\item Applications: Implémentation, test etc..  \pause
+	\end{itemize}
 	
 \end{frame}
 
-\subsection{Le schéma "lite" Cramer-Shoup}
-\begin{frame}{Le schéma "lite" Cramer-Shoup}
-	
-\end{frame}
-
-\subsection{Construction de Serveur de Re-chiffrement}
-\begin{frame}{Chiffrement Bidirectionnel}
-	
-\end{frame}
-
-
-
-
+\section{Conclusion}
 \begin{frame}{Conclusion}
+	
+	\begin{itemize}
+		\item Utilité des Serveurs de Re-chiffrement \pause
+		\item Développement des PRE et problématiques \pause
+		\item Objectifs et Contributions \pause
+		\item Méthodologie de recherche \pause
+		\item Résultats attendus \pause
+	\end{itemize}
+	
+\end{frame}
+\begin{frame}[plain]
+\centering	\Huge \textbf{\textit{MERCI POUR VOTRE ATTENTION}}
 \end{frame}
 \end{document}

@@ -12,7 +12,8 @@
 
 \usepackage[hmargin=2.5cm, vmargin=2cm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+
 \pagestyle{plain}
 
 \usepackage{babel}
@@ -53,144 +54,95 @@
 \newtheorem{algo}{Algorithme}[section]
 \usepackage{graphicx}
 
-%\title{\Large{  THESE DE TROISIEME CYCLE  ÈS SCIENCES MATHÉMATIQUES  \\
+%\title{\Large{  THESE DE TROISIEME CYCLE  ÃˆS SCIENCES MATHÃ‰MATIQUES  \\
          %OPTION: \underline{CRYPTOLOGIE}}}
 
 \begin{document}
 %\tableofcontents
 %\maketitle
+\begin{titlepage}
+	\addtolength{\hoffset}{-1cm}
+	\centering
+	{\scshape\large RÃ‰PUBLIQUE DU SÃ‰NÃ‰GAL \\MINISTÃˆRE DE L'ENSEIGNEMENT SUPÃ‰RIEUR,\\
+		DE LA RECHERCHE ET DE L'INNOVATION \par}
+	\vspace{1cm}
+	\includegraphics[width=0.30\textwidth]{logo}\par\vspace{0.2cm}
+	{\scshape\Large UniversitÃ© Gaston Berger de Saint-Louis \par}
+	\vspace{0.5cm}
+	{\scshape\Large Ã‰COLE DOCTORALE DES SCIENCES ET DES TECHNOLOGIES \par}
+	\vspace{1.5cm}
+	{\scshape Projet de ThÃ¨se \par}
+	
+	\vspace{0.5cm}
+	
+	
+	{\LARGE\bfseries \textbf{Chiffrement unidirectionnel et chiffrement bidirectionnel: constructions, modÃ¨le de sÃ©curitÃ© et applications} \par}
+	\vspace{2.5cm}
 
-\begin{center}
-\underline{Universit\'e Gaston Berger de Saint-Louis}
+	{\LARGE\itshape Mamadou Makhtar \textsc{LO} \par}
+	{\large Email: Lo.mamadou-makhtar@ugb.edu.sn \par}
+	\vfill
+	
+	% Bottom of the page
+	{\large \textbf{AnnÃ©e acadÃ©mique 2020-2021}\par}
+\end{titlepage}
 
-\textbf{(U. G. B.)}
-
-\includegraphics[width=0.17\textwidth]{logo.jpg}
-
-\bigskip
-
-UFR Sciences Appliquées et Technologiques
-
-\textbf{(S. A. T.)}
-
-\bigskip
-
-ÉCOLE DOCTORALE DES SCIENCES ET DES TECHNOLOGIES
-
-%\includegraphics[width=0.17\textwidth]{imsp.jpg}
-
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-
-
-\Huge{\textbf{Projet thèse}}\\
-
-
-\medskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-
-
-
-\normalsize
-\textbf{M. Mamadou Makhtar LO} \\
-Email: lo.mamadou-makhtar@ugb.edu.sn
-
-
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-
-
-\begin{center}
-    Année académique 2020-2021
-\end{center}
-
- \end{center}
 
 \newpage
 
 \tableofcontents
 
-\begin{abstract}
+\newpage
 
-\end{abstract}
+\section*{Contexte}
 
+Un des objectifs de base de la cryptographie en gÃ©nÃ©ral et du chiffrement en particulier est d'assurer la confidentialitÃ© de donnÃ©es. Il paraÃ®t mÃªme nÃ©cessaire qu'un systÃ¨me de chiffrement ne peut permettre l'accÃ¨s au message (texte clair) qu'au destinataire du texte chiffrÃ©. Ainsi, transfÃ©rer le texte clair Ã  un autre destinataire nÃ©cessiterait un accÃ¨s au texte clair et Ã  la clÃ© de chiffrement de l'autre destinataire.\\
+Cependant avec le dÃ©veloppement des outils technologiques tels que le stockage sur rÃ©seau (Drive, iCloud, Mega etc..), le Cloud Computing ou le transfert de fichiers entre objets connectÃ©s (IoT), il devient nÃ©cessaire de permettre le partage de donnÃ©es et le contrÃ´le d'accÃ¨s des utilisateurs du rÃ©seau tout en assurant la sÃ©curitÃ© des donnÃ©es. En 1998, Matt Blaze et al. \cite{Blaze98} introduisaient la notion d' \textit{atomic proxy function} qui permettrait de transformer un texte chiffrÃ© pour une clÃ© particuliÃ¨re en un texte chiffrÃ© pour une autre clÃ© sans pour autant avoir accÃ¨s au texte clair ou aux clÃ©s de dÃ©chiffrement. On parle de serveur de re-chiffrement ou \textit{Proxy Re-Encryption}(PRE).\\
 
-
-\section{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}
-\subsection{Contexte}
-
-Un des objectifs de base de la cryptographie en général et du chiffrement en particulier est d'assurer la confidentialité de données. Il paraît même nécessaire qu'un système de chiffrement ne peut permettre l'accès au message(texte clair) qu'au destinataire du texte chiffré. Ainsi, transférer le texte clair à un autre destinataire nécessiterait un accès au texte clair et à la clé de chiffrement de l'autre destinataire.\\
-Cependant avec le développement des outils technologiques tels que le stockage sur réseau (Drive, iCloud, Mega etc..), le Cloud Computing ou le transfert de fichiers entre objets connectés (IoT), il devient nécessaire de permettre le partage de données et le contrôle d'accès des utilisateurs du réseau tout en assurant la sécurité des données. En 1998, Matt Blaze et al. \cite{Blaze98} introduisait la notion de \textit{atomic proxy functions} qui permettrait de transformer un texte chiffré pour une clé particulière en un texte chiffré pour une autre clé sans pour autant avoir accès au texte clair ou aux clés de déchiffrement. On parle de serveur de re-chiffrement ou \textit{Proxy Re-Encryption}(PRE).\\
-
-Les PRE qui étaient à l'origine conçus pour être des systèmes de suivi de courriers chiffrés sont aujourd'hui utilisés pour le contrôle d'accès et les partages de données notamment en \textit{Cloud Computing}. \cite{devigne:tel-01081377} \cite{ateniese2006improved}
+Les PRE qui Ã©taient Ã  l'origine conÃ§us pour Ãªtre des systÃ¨mes de suivi de courriers chiffrÃ©s sont aujourd'hui utilisÃ©s pour le contrÃ´le d'accÃ¨s et les partages de donnÃ©es notamment en \textit{Cloud Computing}. \cite{devigne:tel-01081377} \cite{ateniese2006improved}
 \cite{liu2020development}. \\
-Dans leurs travaux, Blaze and al. \cite{Blaze98} proposèrent un schéma de PRE basé sur El Gamal \cite{elgamal1985public}. Toutefois, il aura fallu attendre Ateniese et Al. \cite{ateniese2006improved} pour avoir une première définition formelle des PRE et de leurs modèles de sécurité. On a ainsi pu observer une évolution des PRE ces vingt dernières années avec la construction de nouveaux modèles, des preuves de sécurité et une utilisation plus large.
-\subsection{Définitions}
-Un schéma de serveur de re-chiffrement peut être défini par la donnée de cinq algorithmes \{\textit{Clé}, \textit{Délégation}, \textit{Chiffrer}, \textit{Re-Chiffrer}, \textit{Dechiffrer}\} tels que:
+Dans leurs travaux, Blaze and al. \cite{Blaze98} proposÃ¨rent un schÃ©ma de PRE basÃ© sur El Gamal \cite{elgamal1985public}. Toutefois, il aura fallu attendre Ateniese et Al. \cite{ateniese2006improved} pour avoir une premiÃ¨re dÃ©finition formelle des PRE et de leurs modÃ¨les de sÃ©curitÃ©. On a ainsi pu observer une Ã©volution des PRE ces vingt derniÃ¨res annÃ©es avec la construction de nouveaux modÃ¨les, des preuves de sÃ©curitÃ© et une utilisation plus large.
+\section{Chiffrement Unidirectionnel et Chiffrement Bidirectionnel}
+
+Un schÃ©ma de serveur de re-chiffrement peut Ãªtre dÃ©fini par la donnÃ©e de cinq algorithmes \{\textit{ClÃ©}, \textit{DÃ©lÃ©gation}, \textit{Chiffrer}, \textit{Re-Chiffrer}, \textit{Dechiffrer}\} tels que:
 \begin{itemize}
-	\item \textit{Clé} génère les clés de chiffrement et déchiffrement.
-	\item \textit{Délégation} génère la clé de délégation ou \textit{clé proxy}.
-	\item \textit{Chiffrer} chiffre le message à l'aide de la clé de chiffrement.
-	\item \textit{Re-Chiffrer} transforme (re-chiffre) à l'aide de la \textit{clé proxy} un texte chiffré pour le délégant en un texte chiffré pour le délégué.
-	\item  \textit{Dechiffrer} déchiffre le texte chiffré à l'aide de la clé de déchiffrement.
+	\item \textit{ClÃ©} gÃ©nÃ¨re les clÃ©s de chiffrement et dÃ©chiffrement.
+	\item \textit{DÃ©lÃ©gation} gÃ©nÃ¨re la clÃ© de dÃ©lÃ©gation ou \textit{clÃ© proxy}.
+	\item \textit{Chiffrer} chiffre le message Ã  l'aide de la clÃ© de chiffrement.
+	\item \textit{Re-Chiffrer} transforme (re-chiffre) Ã  l'aide de la \textit{clÃ© proxy} un texte chiffrÃ© pour le dÃ©lÃ©gant en un texte chiffrÃ© pour le dÃ©lÃ©guÃ©.
+	\item  \textit{Dechiffrer} dÃ©chiffre le texte chiffrÃ© Ã  l'aide de la clÃ© de dÃ©chiffrement.
 \end{itemize}
-Ainsi, suivant la confiance entre le délégant(\textit{Alice}) et le délégué (\textit{Bob}), on peut distinguer deux catégories de PRE: celle basée sur le \textbf{\textit{chiffrement bidirectionnel}} et celle sur le \textbf{\textit{chiffrement unidirectionnel}}.
-\subsubsection{Chiffrement Bidirectionnel}
-Pour un schéma de serveur de re-chiffrement bidirectionnel, la \textit{clé proxy} utilisée pour transformer un chiffré pour \textit{Alice} en un chiffré pour \textit{Bob} peut aussi être utilisée pour transformer un texte chiffré pour \textit{Bob} en un texte pour \textit{Alice}.\\
-Le schéma proposé par Blazer en 1998 peut être considéré comme bidirectionnel.
+Ainsi, suivant la confiance entre le dÃ©lÃ©gant(\textit{Alice}) et le dÃ©lÃ©guÃ© (\textit{Bob}), on peut distinguer deux catÃ©gories de PRE: celle basÃ©e sur le \textbf{\textit{chiffrement bidirectionnel}} et celle sur le \textbf{\textit{chiffrement unidirectionnel}}.
 
-\subsubsection{Chiffrement Unidirectionnel}
-Contrairement au bidirectionnel, un serveur de re-chiffrement unidirectionnel ne permet la délégation que dans un sens. Ivan et Al. \cite{ivan2003proxy} seront les premiers en 2003 à construire une méthode générique pour construire un schéma pouvant être considéré comme unidirectionnel.
-\section{Problématique et Objectifs}
-\subsection{Problématique}
-Le modèle proposé par Blaze et Al.\cite{blaze98} en 1998  ne résistait pas aux attaques par collusion, le proxy et le délégué pouvait aussi toujours collaborer pour retrouver la clé du délégant. En 2003, Ivan et Al.\cite{ivan2003proxy} proposeront une méthode générique pour construire un serveur de re-chiffrement unidirectionnel, toutefois ces schémas ne résistaient toujours pas à l'attaque par collusion et n'optimiser pas l'utilisation des clés.\\
-Cependant, en 2005, Ateniese et Al. \cite{ateniese2006improved} formalisent la notion de PRE et ses modèles de sécurité et construisent un schéma PRE résistant aux attaques par collusion et achevant une sécurité CPA. Ils posèrent le problème de la construction de modèle achevant la sécurité CCA. Plusieurs modèles ont pu ainsi être construits: Canetti et Al. avec un PRE bidirectionnel et CCA-sûr (2007)\cite{canetti2007chosen}, Libert et Al. avec un PRE unidirectionnel RCCA-sûr (2008) \cite{libert2008unidirectional}, Shao et Al. avec le premier modèle CCA-sûr sans forme bilinéaire(2009)\cite{shao2009cca}, Kirshanova et Al avec leur modèle basé sur LWE et CCA-sûr(2014)\cite{kirshanova2014proxy}...\\
+\subsection{Chiffrement Unidirectionnel}
+Pour un schÃ©ma de serveur de re-chiffrement unidirectionnel, la dÃ©lÃ©gation se fait uniquement dans un sens. La \textit{clÃ© proxy} ne permet que de transformer un chiffrÃ© pour \textit{Alice} en un chiffrÃ© pour \textit{Bob}. On doit utiliser une autre \textit{clÃ© proxy} pour avoir la dÃ©lÃ©gation inverse.  \\ Ivan et Al. \cite{ivan2003proxy} seront les premiers en 2003 Ã  construire une mÃ©thode gÃ©nÃ©rique pour construire un schÃ©ma pouvant Ãªtre considÃ©rÃ© comme unidirectionnel.
 
+\subsection{Chiffrement Bidirectionnel}
+Dans le cas du chiffrement bidirectionnel, la \textit{clÃ© proxy} utilisÃ©e pour transformer un chiffrÃ© pour \textit{Alice} en un chiffrÃ© pour \textit{Bob} peut aussi Ãªtre utilisÃ©e pour transformer un texte chiffrÃ© pour \textit{Bob} en un texte pour \textit{Alice}. La dÃ©lÃ©gation se fait dans les deux sens.\\
+Le schÃ©ma proposÃ© par Blazer en 1998 peut Ãªtre considÃ©rÃ© comme bidirectionnel.
+
+\section{ProblÃ©matique et Objectifs}
+\subsection{ProblÃ©matique}
+Le modÃ¨le proposÃ© par Blaze et Al.\cite{blaze98} en 1998  ne rÃ©sistait pas aux attaques par collusion, le proxy et le dÃ©lÃ©guÃ© pouvait aussi toujours collaborer pour retrouver la clÃ© du dÃ©lÃ©gant. En 2003, Ivan et Al.\cite{ivan2003proxy} proposeront une mÃ©thode gÃ©nÃ©rique pour construire un serveur de re-chiffrement unidirectionnel, toutefois ces schÃ©mas ne rÃ©sistaient toujours pas Ã  l'attaque par collusion et n'optimiser pas l'utilisation des clÃ©s.\\
+Cependant, en 2005, Ateniese et Al. \cite{ateniese2006improved} formalisent la notion de PRE et ses modÃ¨les de sÃ©curitÃ© et construisent un schÃ©ma PRE rÃ©sistant aux attaques par collusion et achevant une sÃ©curitÃ© CPA. Ils posÃ¨rent le problÃ¨me de la construction de modÃ¨le achevant la sÃ©curitÃ© CCA. Plusieurs modÃ¨les ont pu ainsi Ãªtre construits: Canetti et Al. avec un PRE bidirectionnel et CCA-sÃ»r (2007)\cite{canetti2007chosen}, Libert et Al. avec un PRE unidirectionnel RCCA-sÃ»r (2008) \cite{libert2008unidirectional}, Shao et Al. avec le premier modÃ¨le CCA-sÃ»r sans forme bilinÃ©aire(2009)\cite{shao2009cca}, Kirshanova et Al avec leur modÃ¨le basÃ© sur LWE et CCA-sÃ»r(2014)\cite{kirshanova2014proxy}.\\
+L'Ã©tude de schÃ©mas de re-chiffrement sÃ»rs et efficaces et la construction de modÃ¨les applicables contribuerait au dÃ©veloppement de la recherche et la mise en ?uvre des serveurs de chiffrement.  
 
  \subsection{Objectifs Scientifiques}
-De manière concrète, nous nous intéresserons dans ce travail aux aspects théoriques et pratiques des serveurs de re-chiffrement unidirectionnel et de re-chiffrement bidirectionnel. Nous travaillerons, en particulier, sur les modèles de sécurité et la construction de schémas efficaces et leurs applications.
+De maniÃ¨re concrÃ¨te, nous nous intÃ©resserons dans ce travail aux aspects thÃ©oriques et pratiques des serveurs de re-chiffrement unidirectionnel et de re-chiffrement bidirectionnel. Nous travaillerons, en particulier, sur les modÃ¨les de sÃ©curitÃ© et la construction de schÃ©mas efficaces et leurs applications.
 
-\subsection{Méthodologie de recherche}
-La recherche couvrira tous les aspects théoriques et pratiques de la question, notamment :
+\subsection{MÃ©thodologie de recherche}
+La recherche couvrira tous les aspects thÃ©oriques et pratiques de la question, notamment :
 \begin{itemize}
-	\item les aspects définitionnels, par l'analyse des modèles existants et la proposition éventuelle de nouveaux modèles ;
-	\item les aspects cryptographiques théoriques par l'analyse des modèles de sécurité et le design de ;
-	\item les aspects cryptographiques pratiques par l'implantation et le déploiement de schémas à sécurité prouvée dans les modèles proposées.
+	\item les aspects dÃ©finitionnels, par l'analyse des modÃ¨les existants et la proposition Ã©ventuelle de nouveaux modÃ¨les ;
+	\item les aspects cryptographiques thÃ©oriques par l'analyse des modÃ¨les de sÃ©curitÃ© et le design de ;
+	\item les aspects cryptographiques pratiques par l'implantation et le dÃ©ploiement de schÃ©mas Ã  sÃ©curitÃ© prouvÃ©e dans les modÃ¨les proposÃ©es.
 \end{itemize}
+\newpage
+\LARGE \textbf{Ã‰quipe du projet:}\\
+\Large \textbf{Directeur de thÃ¨se :} \textit{Pr. Mohammed Ben \textsc{Maaouia}}, MaÃ®tre de ConfÃ©rences,
+Directeur du Labo ACCA;\\
+\Large \textbf{Porteur du projet de thÃ¨se :} \textit{Dr Demba \textsc{SOW}}, MaÃ®treâ€“assistant\\
 
-
-
-\begin{center}
-\textbf{Visa des encadreurs}\
-\end{center}
-\
-
-Pr. Mohamed Ben MAAOUIA
-\begin{flushright}
-Dr. Demba SOW
-\end{flushright}
 
 
 \vspace{2cm}
